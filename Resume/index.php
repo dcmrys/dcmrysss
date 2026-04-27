@@ -61,7 +61,7 @@
 
 <div class="container">
 <?php
-       $name = "Maryclaire Jashley Dela Cruz";
+       $name = "Maryclaire Jashley Padilla Dela Cruz";
        $title = "Web Developer";
        $email = "dcmrys@gmail.com";
        $phone = "0976 399 2262";

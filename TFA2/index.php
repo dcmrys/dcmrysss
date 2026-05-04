@@ -1,105 +1,138 @@
+<?php
+// Metric conversions
+function centimetreToMillimetre($cm) { return $cm * 10; }
+function decimetreToCentimetre($dm) { return $dm * 10; }
+function metreToCentimetre($m) { return $m * 100; }
+function kilometreToMetre($km) { return $km * 1000; }
+
+// Imperial conversions
+function footToInch($ft) { return $ft * 12; }
+function yardToFoot($yd) { return $yd * 3; }
+function chainToYard($ch) { return $ch * 22; }
+function furlongToYard($fur) { return $fur * 220; }
+function mileToYard($mi) { return $mi * 1760; }
+function mileToFurlong($mi) { return $mi * 8; }
+
+// Metric to Imperial
+function millimetreToInch($mm) { return $mm * 0.03937; }
+function centimetreToInch($cm) { return $cm * 0.39370; }
+function metreToInch($m) { return $m * 39.37008; }
+function metreToFoot($m) { return $m * 3.28084; }
+function metreToYard($m) { return $m * 1.09361; }
+function kilometreToYard($km) { return $km * 1093.6133; }
+function kilometreToMile($km) { return $km * 0.62137; }
+
+// Imperial to Metric
+function inchToCentimetre($in) { return $in * 2.54; }
+function footToCentimetre($ft) { return $ft * 30.48; }
+function yardToCentimetre($yd) { return $yd * 91.44; }
+function yardToMetre($yd) { return $yd * 0.9144; }
+function mileToMetre($mi) { return $mi * 1609.344; }
+function mileToKilometre($mi) { return $mi * 1.609344; }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Length Converter</title>
+<title>Conversion Chart</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f2f2f2; /* simple soft background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+    body { 
+        font-family: Arial, sans-serif; 
+        background: #ffffff; 
+        color: #eee; 
+        margin: 20px; 
     }
-
-    .box {
-        width: 260px;
-        background: #ffffff;
-        padding: 15px;
-        border-radius: 6px;
+    h1 { 
+        text-align: center; 
+        color: #332d2d; 
     }
-
-    h2 {
-        text-align: center;
-        font-weight: normal;
-        margin-bottom: 10px;
+    .chart { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 20px; 
+        margin-top: 20px; 
     }
-
-    input, select, button {
-        width: 100%;
-        padding: 6px;
-        margin: 5px 0;
-        border: 1px solid #ccc;
-        background: #fff;
+    .section { 
+        background: #000000; 
+        border: 2px solid #686060; 
+        border-radius: 8px; 
+        padding: 15px; 
     }
-
-    button {
-        cursor: pointer;
+    .section h2 { 
+        background: #2c2424; 
+        color: #fff; 
+        padding: 8px; 
+        margin: -15px -15px 10px -15px; 
+        border-bottom: 2px solid #000; 
+        text-align: center; 
     }
-
-    .result {
-        text-align: center;
-        margin-top: 10px;
+    table { 
+        width: 100%; 
+        border-collapse: collapse; 
     }
+    td { 
+        padding: 6px; 
+        border-bottom: 1px solid #a2a0a0; 
+    }
+    td:first-child { 
+        font-weight: bold; 
+        color: #ffffff; 
+        }
 </style>
 </head>
-
 <body>
+    
+<h1>Measure Conversion Chart</h1>
 
-<div class="box">
-    <h2>Length Converter</h2>
+<div class="chart">
+    <div class="section">
+        <h2>Metric Conversions</h2>
+        <table>
+            <tr><td>1 centimetre</td><td><?php echo centimetreToMillimetre(1); ?> millimetres</td></tr>
+            <tr><td>1 decimetre</td><td><?php echo decimetreToCentimetre(1); ?> centimetres</td></tr>
+            <tr><td>1 metre</td><td><?php echo metreToCentimetre(1); ?> centimetres</td></tr>
+            <tr><td>1 kilometre</td><td><?php echo kilometreToMetre(1); ?> metres</td></tr>
+        </table>
+    </div>
 
-    <form method="POST">
-        <input type="number" name="value" step="any" placeholder="Enter value" required>
+    <div class="section">
+        <h2>Imperial Conversions</h2>
+        <table>
+            <tr><td>1 foot</td><td><?php echo footToInch(1); ?> inches</td></tr>
+            <tr><td>1 yard</td><td><?php echo yardToFoot(1); ?> feet</td></tr>
+            <tr><td>1 chain</td><td><?php echo chainToYard(1); ?> yards</td></tr>
+            <tr><td>1 furlong</td><td><?php echo furlongToYard(1); ?> yards</td></tr>
+            <tr><td>1 mile</td><td><?php echo mileToYard(1); ?> yards</td></tr>
+            <tr><td>1 mile</td><td><?php echo mileToFurlong(1); ?> furlongs</td></tr>
+        </table>
+    </div>
 
-        <select name="from">
-            <option value="meter">Meter</option>
-            <option value="centimeter">Centimeter</option>
-            <option value="kilometer">Kilometer</option>
-            <option value="inch">Inch</option>
-        </select>
+    <div class="section">
+        <h2>Metric to Imperial Conversions</h2>
+        <table>
+            <tr><td>1 millimetre</td><td><?php echo millimetreToInch(1); ?> inches</td></tr>
+            <tr><td>1 centimetre</td><td><?php echo centimetreToInch(1); ?> inches</td></tr>
+            <tr><td>1 metre</td><td><?php echo metreToInch(1); ?> inches</td></tr>
+            <tr><td>1 metre</td><td><?php echo metreToFoot(1); ?> feet</td></tr>
+            <tr><td>1 metre</td><td><?php echo metreToYard(1); ?> yards</td></tr>
+            <tr><td>1 kilometre</td><td><?php echo kilometreToYard(1); ?> yards</td></tr>
+            <tr><td>1 kilometre</td><td><?php echo kilometreToMile(1); ?> miles</td></tr>
+        </table>
+    </div>
 
-        <select name="to">
-            <option value="meter">Meter</option>
-            <option value="centimeter">Centimeter</option>
-            <option value="kilometer">Kilometer</option>
-            <option value="inch">Inch</option>
-        </select>
-
-        <button type="submit" name="convert">Convert</button>
-    </form>
-
-    <div class="result">
-        <?php
-        if (isset($_POST['convert'])) {
-            $value = $_POST['value'];
-            $from = $_POST['from'];
-            $to = $_POST['to'];
-
-            // Convert to meters
-            switch ($from) {
-                case "meter": $meters = $value; break;
-                case "centimeter": $meters = $value / 100; break;
-                case "kilometer": $meters = $value * 1000; break;
-                case "inch": $meters = $value * 0.0254; break;
-            }
-
-            // Convert to target
-            switch ($to) {
-                case "meter": $result = $meters; break;
-                case "centimeter": $result = $meters * 100; break;
-                case "kilometer": $result = $meters / 1000; break;
-                case "inch": $result = $meters / 0.0254; break;
-            }
-
-            echo $result . " " . $to;
-        }
-        ?>
+    <div class="section">
+        <h2>Imperial to Metric Conversions</h2>
+        <table>
+            <tr><td>1 inch</td><td><?php echo inchToCentimetre(1); ?> centimetres</td></tr>
+            <tr><td>1 foot</td><td><?php echo footToCentimetre(1); ?> centimetres</td></tr>
+            <tr><td>1 yard</td><td><?php echo yardToCentimetre(1); ?> centimetres</td></tr>
+            <tr><td>1 yard</td><td><?php echo yardToMetre(1); ?> metres</td></tr>
+            <tr><td>1 mile</td><td><?php echo mileToMetre(1); ?> metres</td></tr>
+            <tr><td>1 mile</td><td><?php echo mileToKilometre(1); ?> kilometres</td></tr>
+        </table>
     </div>
 </div>
-
 </body>
 </html>

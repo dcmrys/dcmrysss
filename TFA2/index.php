@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Length Converter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+<meta charset="UTF-8">
+<title>Length Converter</title>
 
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-        h2 {
-            text-align: center;
-        }
+    .box {
+        width: 260px;
+    }
 
-        input, select, button {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0;
-        }
+    h2 {
+        text-align: center;
+        font-weight: normal;
+    }
 
-        .result {
-            margin-top: 10px;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+    input, select, button {
+        width: 100%;
+        padding: 6px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        background: #fff;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .result {
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<div class="box">
     <h2>Length Converter</h2>
 
     <form method="POST">
@@ -70,15 +74,15 @@
             $from = $_POST['from'];
             $to = $_POST['to'];
 
-            // Convert everything to meters first
+            // Convert to meters (base unit)
             switch ($from) {
                 case "meter": $meters = $value; break;
-                case "centimeter": $meters = $value / 100; break; // 1 m = 100 cm
+                case "centimeter": $meters = $value / 100; break;
                 case "kilometer": $meters = $value * 1000; break;
                 case "inch": $meters = $value * 0.0254; break;
             }
 
-            // Convert meters to target unit
+            // Convert to target unit
             switch ($to) {
                 case "meter": $result = $meters; break;
                 case "centimeter": $result = $meters * 100; break;
@@ -86,7 +90,7 @@
                 case "inch": $result = $meters / 0.0254; break;
             }
 
-            echo "Result: " . $result . " " . $to;
+            echo $result . " " . $to;
         }
         ?>
     </div>
@@ -94,4 +98,3 @@
 
 </body>
 </html>
-

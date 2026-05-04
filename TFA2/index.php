@@ -7,20 +7,25 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background: #ffffff;
+        background: #f2f2f2; /* simple soft background */
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        margin: 0;
     }
 
     .box {
         width: 260px;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 6px;
     }
 
     h2 {
         text-align: center;
         font-weight: normal;
+        margin-bottom: 10px;
     }
 
     input, select, button {
@@ -74,7 +79,7 @@
             $from = $_POST['from'];
             $to = $_POST['to'];
 
-            // Convert to meters (base unit)
+            // Convert to meters
             switch ($from) {
                 case "meter": $meters = $value; break;
                 case "centimeter": $meters = $value / 100; break;
@@ -82,7 +87,7 @@
                 case "inch": $meters = $value * 0.0254; break;
             }
 
-            // Convert to target unit
+            // Convert to target
             switch ($to) {
                 case "meter": $result = $meters; break;
                 case "centimeter": $result = $meters * 100; break;

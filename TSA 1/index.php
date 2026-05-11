@@ -19,10 +19,10 @@
    }
    h2{
        text-align: center;
-       color: darkblue;
+       color: #4B4C4E;
    }
    h3{
-       background-color: darkblue;
+       background-color: black;
        color: white;
        padding: 8px;
        border-radius: 5px;

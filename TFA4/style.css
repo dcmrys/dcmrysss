@@ -6,15 +6,13 @@ body{
     text-align:center;
 }
 
-/* HEADER */
 h1{
-    color:#880e4f;
+    color:#880e4fe9;
     margin-top:30px;
     font-size:45px;
     letter-spacing:2px;
 }
 
-/* CONTAINER */
 .container{
     width:90%;
     margin:auto;
@@ -25,7 +23,6 @@ h1{
     flex-wrap:wrap;
 }
 
-/* CARD DESIGN */
 .card{
     width:220px;
     height:320px;
@@ -45,7 +42,6 @@ h1{
     box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* TOP DESIGN */
 .card::before{
     content:"";
     width:100%;
@@ -57,7 +53,6 @@ h1{
     border-radius:0 0 50% 50%;
 }
 
-/* LINK */
 .card a{
     text-decoration:none;
     color:#880e4f;
@@ -71,7 +66,6 @@ h1{
     color:#d81b60;
 }
 
-/* STORY BOX */
 .story-box{
     width:75%;
     margin:50px auto;
@@ -94,7 +88,6 @@ h1{
     text-align:justify;
 }
 
-/* BUTTON */
 button{
     padding:12px 25px;
     border:none;
@@ -111,7 +104,6 @@ button:hover{
     transform:scale(1.05);
 }
 
-/* FOOTER */
 footer{
     background:#880e4f;
     color:white;

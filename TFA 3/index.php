@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Array Table</title>
+    <title>Student List</title>
     <style>
-        body {
-            font-family: Arial;
-        }
         table {
             border-collapse: collapse;
-            width: 90%;
+            width: 80%;
             margin: auto;
         }
         th, td {
             border: 1px solid black;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
         }
         img {
-            width: 60px;
-            height: 60px;
+            width: 50px;
         }
     </style>
 </head>
@@ -27,44 +23,73 @@
 <h2 style="text-align:center;">Student List</h2>
 
 <?php
-$people = [
-    ["name"=>"Anna","age"=>18,"birthday"=>"Jan 1, 2007","contact"=>"09111111111","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Brian","age"=>19,"birthday"=>"Feb 2, 2006","contact"=>"09222222222","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Carl","age"=>20,"birthday"=>"Mar 3, 2005","contact"=>"09333333333","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Diana","age"=>18,"birthday"=>"Apr 4, 2007","contact"=>"09444444444","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Evan","age"=>19,"birthday"=>"May 5, 2006","contact"=>"09555555555","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Faith","age"=>20,"birthday"=>"Jun 6, 2005","contact"=>"09666666666","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"George","age"=>18,"birthday"=>"Jul 7, 2007","contact"=>"09777777777","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Hannah","age"=>19,"birthday"=>"Aug 8, 2006","contact"=>"09888888888","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Ian","age"=>20,"birthday"=>"Sep 9, 2005","contact"=>"09999999999","image"=>"https://via.placeholder.com/60"],
-    ["name"=>"Jane","age"=>18,"birthday"=>"Oct 10, 2007","contact"=>"09000000000","image"=>"https://via.placeholder.com/60"]
+// separate arrays (easier for beginners)
+$names = ["Anna","Brian","Carl","Diana","Evan","Faith","George","Hannah","Ian","Jane"];
+$ages = [18,19,20,18,19,20,18,19,20,18];
+$birthdays = ["Jan1","Feb2","Mar3","Apr4","May5","Jun6","Jul7","Aug8","Sep9","Oct10"];
+$contacts = ["0911","0922","0933","0944","0955","0966","0977","0988","0999","0900"];
+$images = [
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50",
+    "https://via.placeholder.com/50"
 ];
 
-usort($people, function($a, $b) {
-    return strcmp($a["name"], $b["name"]);
-});
+// simple alphabetical sort (bubble sort)
+for($i=0; $i<10; $i++){
+    for($j=0; $j<9; $j++){
+        if($names[$j] > $names[$j+1]){
+            // swap all values
+            $temp = $names[$j];
+            $names[$j] = $names[$j+1];
+            $names[$j+1] = $temp;
+
+            $temp = $ages[$j];
+            $ages[$j] = $ages[$j+1];
+            $ages[$j+1] = $temp;
+
+            $temp = $birthdays[$j];
+            $birthdays[$j] = $birthdays[$j+1];
+            $birthdays[$j+1] = $temp;
+
+            $temp = $contacts[$j];
+            $contacts[$j] = $contacts[$j+1];
+            $contacts[$j+1] = $temp;
+
+            $temp = $images[$j];
+            $images[$j] = $images[$j+1];
+            $images[$j+1] = $temp;
+        }
+    }
+}
 
 echo "<table>";
 echo "<tr>
-        <th>No.</th>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Age</th>
-        <th>Birthday</th>
-        <th>Contact</th>
-      </tr>";
+<th>No.</th>
+<th>Name</th>
+<th>Image</th>
+<th>Age</th>
+<th>Birthday</th>
+<th>Contact</th>
+</tr>";
 
-$no = 1;
-foreach($people as $p){
+for($i=0; $i<10; $i++){
     echo "<tr>";
-    echo "<td>".$no++."</td>";
-    echo "<td>".$p["name"]."</td>";
-    echo "<td><img src='".$p["image"]."'></td>";
-    echo "<td>".$p["age"]."</td>";
-    echo "<td>".$p["birthday"]."</td>";
-    echo "<td>".$p["contact"]."</td>";
+    echo "<td>".($i+1)."</td>";
+    echo "<td>".$names[$i]."</td>";
+    echo "<td><img src='".$images[$i]."'></td>";
+    echo "<td>".$ages[$i]."</td>";
+    echo "<td>".$birthdays[$i]."</td>";
+    echo "<td>".$contacts[$i]."</td>";
     echo "</tr>";
 }
+
 echo "</table>";
 ?>
 

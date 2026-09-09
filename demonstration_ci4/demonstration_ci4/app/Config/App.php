@@ -19,6 +19,20 @@ class App extends BaseConfig
     public string $baseURL = 'http://localhost/dcmrysss/demonstration_ci4/demonstration_ci4/';
 
     /**
+     * Use Render's assigned public URL when the app runs in production there.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $renderURL = getenv('RENDER_EXTERNAL_URL');
+
+        if (is_string($renderURL) && $renderURL !== '') {
+            $this->baseURL = rtrim($renderURL, '/') . '/';
+        }
+    }
+
+    /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
      * If you want to accept multiple Hostnames, set this.
      *

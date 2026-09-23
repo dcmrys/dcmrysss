@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: counterflow-pos-maryclaire
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: demonstration_ci4/demonstration_ci4
+    healthCheckPath: /
+    envVars:
+      - key: CI_ENVIRONMENT
+        value: production

@@ -3,7 +3,7 @@
 * Enhanced interactions and animations
 */
 document.addEventListener('DOMContentLoaded', function() {
-// Initialize all components
+// Initialize all componentsyes
 initScrollAnimations();
 initFormEnhancements();
 initNavigationEffects();
